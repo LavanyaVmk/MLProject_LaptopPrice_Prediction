@@ -51,7 +51,7 @@ st.markdown(f"""
         /* Title container pinned to the very left, no extra top margin */
         .title-container {{
             margin-top: 0px;
-            margin-left: 0px;
+            margin-left: 10px;
             text-align: left;
         }}
 
