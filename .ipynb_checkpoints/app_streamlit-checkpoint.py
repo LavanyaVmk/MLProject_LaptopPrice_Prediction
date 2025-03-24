@@ -27,24 +27,20 @@ html, body, .stApp {{
 
 /* Force the block-container to have no top margin/padding */
 .block-container {{
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    margin-top: 15px !important;
 }}
 
 /* Background image pinned, no top margin */
 .stApp {{
     background: url("{background_image_url}") no-repeat center center fixed;
-    background-size: 80%;
+    background-size: 85%;
 }}
 
 /* Title container pinned to the left, no top margin */
 .title-container {{
-    position: absolute;
-    left: 0;
-    top: 0; /* pinned at very top */
+    margin-top: 15px !important;
+    left: 1px;
     z-index: 9999;
-    margin: 0;
-    padding: 0;
 }}
 
 /* Title box => left side flat, right side curved, no solid border => royal blue shadow */
@@ -64,7 +60,7 @@ html, body, .stApp {{
 .form-container {{
     margin: 0 auto;
     margin-top: 80px; /* so it’s below the pinned title */
-    max-width: 600px; /* narrower container */
+    max-width: 120px; /* narrower container */
     background: rgba(255,255,255,0.4); /* optional translucent background */
     padding: 20px;
     border-radius: 10px;
@@ -83,7 +79,7 @@ div[data-testid="stSlider"] label {{
 div[data-testid="stSelectbox"],
 div[data-testid="stNumberInput"],
 div[data-testid="stSlider"] {{
-    width: 100% !important;
+    width: 40% !important;
     color: black !important;
     font-weight: bold !important;
     margin-bottom: 15px !important;
