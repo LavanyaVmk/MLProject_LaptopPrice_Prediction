@@ -19,15 +19,16 @@ background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML
 # Embed CSS
 st.markdown(f"""
     <style>
+        /* Main app background */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
             background-size: 80%;
         }}
         
-        /* Title container pinned to the left */
+        /* Title container pinned to the left, no extra margin on top */
         .title-container {{
             margin-left: 20px;
-            margin-top: 30px;
+            margin-top: 0px;  /* remove extra space above title */
         }}
 
         /* Title box => 50% of the screen width */
@@ -43,42 +44,39 @@ st.markdown(f"""
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
         }}
 
-        /* Form container => away from the left, narrower width */
+        /* Form container => narrower, some left margin, no top margin */
         .form-container {{
-            margin-top: 40px;
-            margin-left: 100px;  /* shift form to the right */
-            width: 40%;         /* form container width */
+            margin-top: 0px;       /* remove extra space below title */
+            margin-left: 20px;     /* tweak to move form inside the image area */
+            width: 40%;            /* form container width */
             background: rgba(255,255,255,0.4);
             padding: 20px;
             border-radius: 10px;
         }}
 
-        /* 
+        /*
          * STREAMLIT COMPONENTS
-         * 
          * Each has a data-testid attribute:
          *   stSelectbox, stNumberInput, stSlider
-         * We'll style them directly.
          */
 
-        /* SELECTBOX: container & actual dropdown */
+        /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 80% !important;        /* overall container width */
-            margin-left: 0px !important;  /* or 20px if you want extra left margin for each */
+            width: 40% !important;       /* half of previous 80% */
+            margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
-        /* The interactive dropdown box inside the selectbox container */
         div[data-testid="stSelectbox"] > div[role="combobox"] {{
-            border: 2px solid #40E0D0 !important;   /* turquoise border */
+            border: 2px solid #40E0D0 !important;  /* turquoise border */
             border-radius: 10px !important;
             background: #f0fff0 !important;
             color: #000 !important;
             padding: 6px !important;
         }}
 
-        /* NUMBER INPUT: container & actual input box */
+        /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 80% !important;
+            width: 40% !important;
             margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
@@ -92,9 +90,9 @@ st.markdown(f"""
             font-size: 20px !important;
         }}
 
-        /* SLIDER: container width */
+        /* SLIDER container width */
         div[data-testid="stSlider"] {{
-            width: 80% !important;
+            width: 40% !important;
             margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
@@ -205,5 +203,4 @@ if predict_button:
     </div>
     """, unsafe_allow_html=True)
 
-# Close form container
 st.markdown("</div>", unsafe_allow_html=True)
