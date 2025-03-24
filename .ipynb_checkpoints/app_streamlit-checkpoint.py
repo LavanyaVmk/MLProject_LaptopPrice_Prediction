@@ -45,7 +45,7 @@ st.markdown(f"""
         /* Remove default Streamlit padding/margins */
         .block-container {{
             padding-left: 7% !important;
-            padding-right: 25% !important;
+            padding-right: 45% !important;
         }}
 
         /* Title container pinned to the very left, no extra top margin */
@@ -58,7 +58,7 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 45%;
+            width: 55%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
