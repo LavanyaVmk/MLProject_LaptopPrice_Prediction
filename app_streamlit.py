@@ -15,203 +15,176 @@ st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 # Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
-# Apply custom CSS with updated styling effects
+# Apply custom CSS with updated styling
 st.markdown(
     f"""
     <style>
-        /* Background & container settings */
-        .stApp {{
-            background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 80%;
-        }}
-        .block-container {{
-            padding-left: 15% !important;
-            padding-right: 15% !important;
-        }}
-        
-        /* Heading with shimmer effect and royal blue shadow border */
-        h1 {{
-            text-align: left;
-            font-size: 32px !important;
-            font-weight: bold;
-            background-color: #fffd37 !important; /* Sunshine Yellow */
-            width: 42% !important;
-            color: #1900ff !important; /* Royal Blue text */
-            padding: 8px;
-            border-radius: 5px;
-            margin-left: 5%;
-            margin-bottom: 30px;
-            border: none;
-            box-shadow: 0 0 0 3px #4169E1;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: popIn 0.8s ease forwards;
-        }}
-        h1::after {{
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100px;
-            width: 80px;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
-            transform: skewX(-20deg);
-            transition: left 1s ease;
-        }}
-        h1:hover::after {{
-            left: 100%;
-        }}
-        @keyframes popIn {{
-            0% {{
-                transform: scale(0.8);
-                opacity: 0;
-            }}
-            100% {{
-                transform: scale(1);
-                opacity: 1;
-            }}
-        }}
-
-        /* Increase font size for text labels and center them a bit */
-        div[data-testid="stSelectbox"] label, 
-        div[data-testid="stNumberInput"] label, 
-        div[data-testid="stSlider"] label {{
-            color: #4169E1 !important;
-            font-weight: bold;
-            font-size: 22px !important;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }}
-        div[data-testid="stSelectbox"],
-        div[data-testid="stNumberInput"],
-        div[data-testid="stSlider"] {{
-            width: 40% !important;
-            color: black !important;
-            font-weight: bold !important;
-        }}
-
-        /* Adjust text input styling: reduced width */
-        div[data-baseweb="input"] {{
-            box-sizing: border-box;
-            border: 2px solid #00CED1 !important;
-            border-radius: 10px !important;
-            background: #f0fff0 !important;
-            color: #000 !important;
-            height: 40px !important;
-            line-height: 30px !important;
-            padding: 0 8px !important;
-            font-size: 22px !important;
-            margin: 3px 0 !important;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-            width: 195px !important;
-        }}
-        div[data-baseweb="input"]:hover {{
-            box-shadow: 0 0 6px #00CED1 !important;
-        }}
-        .stTextInput label {{
-            color: #4169E1 !important;
-            font-weight: bold !important;
-            font-size: 25px !important;
-            margin-bottom: 5px !important;
-        }}
-
-        /* Predict Button styling with pop-over effect */
-        .stButton {{
-            display: flex;
-            justify-content: center;
-        }}
-        .stButton > button {{
-            background-color: #4169E1 !important;
-            color: #fffd37 !important;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 22px !important;
-            font-weight: bold;
-            margin-top: 40px !important;
-            border: none;
-            width: 220px;
-            margin-bottom: 10px !important;
-            height: 50px !important;
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-        }}
-        .stButton > button:hover {{
-            background-color: #39FF14 !important;
-            color: black !important;
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }}
-
-        /* Price Display Box with bounce and hover effects */
-        .price-box {{
-            background-color: #fffd37;
-            padding: 20px;
-            border-radius: 20px; /* Increased for more curve */
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            width: 50%;
-            margin: auto;
-            box-shadow: 0 0 0 3px #4169E1; /* Royal blue shadow border */
-            transition: box-shadow 0.3s ease;
-        }}
-        .price-box:hover {{
-            animation: bounceEffect 0.5s forwards;
-            box-shadow: 0 0 0 5px #4169E1;
-        }}
-        @keyframes bounceEffect {{
-            0% {{ transform: scale(1); }}
-            50% {{ transform: scale(1.15); }}
-            100% {{ transform: scale(1.1); }}
-        }}
-
-        /* Success Title Boxes with asymmetric border and royal blue shadow border */
-        @keyframes slideInRight {{
-          0% {{
-            transform: translateX(100%);
+    /* Background & container settings */
+    .stApp {{
+        background: url("{background_image_url}") no-repeat center center fixed;
+        background-size: 80%;
+    }}
+    .block-container {{
+        padding-left: 15% !important;
+        padding-right: 15% !important;
+    }}
+    
+    /* KEYFRAME: Simple pop-in animation for the title */
+    @keyframes popIn {{
+        0% {{
+            transform: translateX(-50px) scale(0.8);
             opacity: 0;
-          }}
-          100% {{
-            transform: translateX(0);
+        }}
+        100% {{
+            transform: translateX(0) scale(1);
             opacity: 1;
-          }}
         }}
-        .title-box {{
-            width: 450px;
-            padding: 14px;
-            /* Asymmetric border-radius: square on left, curved on right */
-            border-radius: 0 20px 20px 0;
-            color: #ffffff;
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            animation: slideInRight 0.8s ease forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            /* Royal blue shadow border effect */
-            box-shadow: 0 0 0 3px #4169E1;
-        }}
-        .title-box:hover {{
-            transform: scale(1.1);
-            box-shadow: 0 0 0 5px #4169E1;
-        }}
-        /* Fixed container for success page titles */
-        .title-wrapper {{
-            position: fixed;
-            right: 40px;
-            top: 120px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 9999;
-        }}
+    }}
+
+    /* Title Box => Left side straight, right side curved, royal blue shadow only */
+    h1 {{
+        float: left;             /* Align the box to the left */
+        background-color: #fffd37;  /* Sunshine Yellow */
+        color: #1900ff;            /* Royal Blue text */
+        font-size: 32px !important;
+        font-weight: bold;
+        margin: 0 !important;
+        margin-bottom: 30px !important;
+        padding: 12px 20px;
+        border: none;
+        /* Asymmetric border => flat left, curved right */
+        border-radius: 0 50px 50px 0;
+        /* Royal Blue shadow => transparent style */
+        box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
+        animation: popIn 0.8s ease forwards;
+        position: relative;
+    }}
+
+    /* Text labels => a bit larger, centered horizontally */
+    div[data-testid="stSelectbox"] label, 
+    div[data-testid="stNumberInput"] label, 
+    div[data-testid="stSlider"] label {{
+        color: #4169E1 !important;
+        font-weight: bold;
+        font-size: 22px !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }}
+    div[data-testid="stSelectbox"],
+    div[data-testid="stNumberInput"],
+    div[data-testid="stSlider"] {{
+        width: 40% !important;
+        color: black !important;
+        font-weight: bold !important;
+    }}
+
+    /* Input fields => half original size => ~150px wide */
+    div[data-baseweb="input"] {{
+        box-sizing: border-box;
+        border: 2px solid #00CED1 !important;
+        border-radius: 10px !important;
+        background: #f0fff0 !important;
+        color: #000 !important;
+        height: 40px !important;
+        line-height: 30px !important;
+        padding: 0 8px !important;
+        font-size: 20px !important;
+        margin: 3px 0 !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+        width: 150px !important; /* ~ half original size */
+    }}
+    div[data-baseweb="input"]:hover {{
+        box-shadow: 0 0 6px #00CED1 !important;
+    }}
+
+    /* Predict Button => pop-over effect on hover */
+    .stButton {{
+        display: flex;
+        justify-content: center;
+    }}
+    .stButton > button {{
+        background-color: #4169E1 !important;
+        color: #fffd37 !important;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 22px !important;
+        font-weight: bold;
+        margin-top: 40px !important;
+        border: none;
+        width: 220px;
+        height: 50px !important;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }}
+    .stButton > button:hover {{
+        background-color: #39FF14 !important;
+        color: black !important;
+        transform: scale(1.1) rotate(2deg);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }}
+
+    /* Price Display Box => no solid border, only a royal blue shadow, curved corners */
+    .price-box {{
+        background-color: #fffd37;
+        padding: 20px;
+        border-radius: 20px; /* Larger curve */
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        width: 50%;
+        margin: auto;
+        /* Royal blue shadow => no solid border */
+        box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }}
+    .price-box:hover {{
+        transform: scale(1.05);
+        box-shadow: 0 0 0 6px rgba(65,105,225,0.5);
+    }}
+
+    /* (Optional) If you have success title boxes => Asymmetric border + shadow */
+    @keyframes slideInRight {{
+      0% {{
+        transform: translateX(100%);
+        opacity: 0;
+      }}
+      100% {{
+        transform: translateX(0);
+        opacity: 1;
+      }}
+    }}
+    .title-box {{
+        width: 450px;
+        padding: 14px;
+        border-radius: 0 20px 20px 0;
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+        animation: slideInRight 0.8s ease forwards;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        box-shadow: 0 0 0 3px rgba(65,105,225,0.5);
+    }}
+    .title-box:hover {{
+        transform: scale(1.1);
+        box-shadow: 0 0 0 5px rgba(65,105,225,0.5);
+    }}
+    .title-wrapper {{
+        position: fixed;
+        right: 40px;
+        top: 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 9999;
+    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Left-aligned title
+# The Title
 st.markdown("""<h1>💻 Laptop Price Predictor</h1>""", unsafe_allow_html=True)
 
 # Input Fields
@@ -232,14 +205,25 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Centered Predict Button and Price Display
+# Predict Button
 if st.button('Predict Price', key='predict_button'):
+    # Convert 'Yes'/'No' to 1/0
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
+
+    # Calculate ppi
     X_res, Y_res = map(int, resolution.split('x'))
     ppi = ((X_res ** 2) + (Y_res ** 2)) ** 0.5 / screen_size
+
+    # Prepare query & predict
     query = np.array([company, laptop_type, ram, weight, touchscreen, ips, ppi, cpu, hdd, ssd, gpu, os]).reshape(1, -1)
     predicted_price = int(np.exp(pipe.predict(query)[0]))
     price_inr = f"₹{predicted_price:,.2f}"
-    
-    st.markdown(f"""<div class='price-box'>🏷️ Estimated Laptop Price: <span style="color: #d80000;">{price_inr}</span></div>""", unsafe_allow_html=True)
+
+    # Display Price => curved box + royal blue shadow, no solid border
+    st.markdown(f"""
+    <div class='price-box'>
+      🏷️ Estimated Laptop Price:
+      <span style="color: #d80000;">{price_inr}</span>
+    </div>
+    """, unsafe_allow_html=True)
