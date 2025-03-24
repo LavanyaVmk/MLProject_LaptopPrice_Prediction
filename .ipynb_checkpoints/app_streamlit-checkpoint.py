@@ -28,7 +28,8 @@ st.markdown(f"""
         .title-container {{
             margin-left: 20px;
             margin-top: 30px;
-            z-index: 9999;
+            max-width: 150px;
+            
         }}
 
         /* Title box => left side flat, right side curved */
@@ -46,7 +47,7 @@ st.markdown(f"""
         /* Form container */
         .form-container {{
             margin-top: 40px;
-            max-width: 500px;
+            max-width: 100px;
             background: rgba(255,255,255,0.4);
             padding: 20px;
             border-radius: 10px;
