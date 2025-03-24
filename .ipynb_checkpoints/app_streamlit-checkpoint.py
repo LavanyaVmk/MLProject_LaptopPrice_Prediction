@@ -25,7 +25,7 @@ background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML
 /* Title container pinned to the left, no top margin */
 .title-container {{
     margin-top: 20px !important;
-    left: 15px;
+    margin-left: 20px;
     z-index: 9999;
 }}
 
