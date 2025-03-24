@@ -43,45 +43,73 @@ st.markdown(f"""
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
         }}
 
-        /* Form container => narrower, with left margin so it's "a little away" */
+        /* Form container => away from the left, narrower width */
         .form-container {{
             margin-top: 40px;
-            margin-left: 100px; /* Adjust as needed */
-            width: 40%;         /* Adjust as needed */
+            margin-left: 100px;  /* shift form to the right */
+            width: 40%;         /* form container width */
             background: rgba(255,255,255,0.4);
             padding: 20px;
             border-radius: 10px;
         }}
 
-        /* Input label styling */
+        /* 
+         * STREAMLIT COMPONENTS
+         * 
+         * Each has a data-testid attribute:
+         *   stSelectbox, stNumberInput, stSlider
+         * We'll style them directly.
+         */
+
+        /* SELECTBOX: container & actual dropdown */
+        div[data-testid="stSelectbox"] {{
+            width: 80% !important;        /* overall container width */
+            margin-left: 0px !important;  /* or 20px if you want extra left margin for each */
+            margin-bottom: 15px !important;
+        }}
+        /* The interactive dropdown box inside the selectbox container */
+        div[data-testid="stSelectbox"] > div[role="combobox"] {{
+            border: 2px solid #40E0D0 !important;   /* turquoise border */
+            border-radius: 10px !important;
+            background: #f0fff0 !important;
+            color: #000 !important;
+            padding: 6px !important;
+        }}
+
+        /* NUMBER INPUT: container & actual input box */
+        div[data-testid="stNumberInput"] {{
+            width: 80% !important;
+            margin-left: 0px !important;
+            margin-bottom: 15px !important;
+        }}
+        div[data-testid="stNumberInput"] > div[data-baseweb="input"] {{
+            border: 2px solid #40E0D0 !important;
+            border-radius: 10px !important;
+            background: #f0fff0 !important;
+            color: #000 !important;
+            height: 35px !important;
+            padding: 0 6px !important;
+            font-size: 20px !important;
+        }}
+
+        /* SLIDER: container width */
+        div[data-testid="stSlider"] {{
+            width: 80% !important;
+            margin-left: 0px !important;
+            margin-bottom: 15px !important;
+        }}
+
+        /* LABELS for selectbox, number input, slider, etc. */
         div[data-testid="stSelectbox"] label,
         div[data-testid="stNumberInput"] label,
         div[data-testid="stSlider"] label {{
-            color: #4169E1;
-            font-weight: bold;
-            font-size: 22px;
-            margin-bottom: 5px;
-            display: block;
+            color: #4169E1 !important;
+            font-weight: bold !important;
+            font-size: 22px !important;
+            margin-bottom: 5px !important;
         }}
 
-        /* Text inputs => smaller, turquoise border, fill 80% of the container */
-        div[data-baseweb="input"] {{
-            border: 2px solid #40E0D0; /* Turquoise */
-            border-radius: 10px;
-            background: #f0fff0;
-            color: #000;
-            height: 35px;
-            padding: 0 6px;
-            font-size: 20px;
-            width: 40%; /* 40% of .form-container */
-            margin-bottom: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        }}
-        div[data-baseweb="input"]:hover {{
-            box-shadow: 0 0 5px rgba(64,224,208,0.6);
-        }}
-
-        /* Predict Button */
+        /* PREDICT BUTTON */
         .stButton > button {{
             background-color: #4169E1;
             color: #fffd37;
@@ -101,7 +129,7 @@ st.markdown(f"""
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }}
 
-        /* Price Display Box */
+        /* PRICE DISPLAY BOX */
         .price-box {{
             background-color: #fffd37;
             padding: 20px;
