@@ -21,13 +21,13 @@ st.markdown(f"""
     <style>
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 70%;
+            background-size: 80%;
         }}
         
         /* Title container pinned to the left */
         .title-container {{
             margin-left: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
             z-index: 9999;
         }}
 
@@ -73,7 +73,7 @@ st.markdown(f"""
             height: 35px;
             padding: 0 6px;
             font-size: 20px;
-            width: 100%;
+            width: 30%;
             margin-bottom: 10px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }}
@@ -107,7 +107,7 @@ st.markdown(f"""
             padding: 20px;
             border-radius: 20px;
             text-align: center;
-            font-size: 22px;
+            font-size: 36px;
             font-weight: bold;
             width: 70%;
             margin: auto;
