@@ -50,9 +50,11 @@ st.markdown(f"""
 
         /* Title container pinned to the very left, no extra top margin */
         .title-container {{
-            margin-top: 0px;
+            margin-top: 20px;
             margin-left: 20px;
             text-align: left;
+            margin-bottom: 30px;
+
         }}
 
         /* Title box => anchored left, 80% wide */
@@ -61,7 +63,7 @@ st.markdown(f"""
             width: 75%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 38px;
+            font-size: 36px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
@@ -156,9 +158,9 @@ st.markdown(f"""
             padding: 20px;
             border-radius: 20px;
             text-align: center;
-            font-size: 33px;
+            font-size: 30px;
             font-weight: bold;
-            width: 60%;
+            width: 80%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
