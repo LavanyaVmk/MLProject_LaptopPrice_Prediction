@@ -44,7 +44,7 @@ st.markdown(f"""
 
         /* Remove default Streamlit padding/margins */
         .block-container {{
-            padding-left: 10% !important;
+            padding-left: 8% !important;
             padding-right: 45% !important;
         }}
 
@@ -73,8 +73,8 @@ st.markdown(f"""
         /* Form container => slight left margin so inputs aren’t flush left */
         .form-container {{
             margin-top: 20px;
-            margin-left: 10px !important;  /* adjust this as needed */
-            width: 45%;
+            margin-left: 2px !important;  /* adjust this as needed */
+            width: 40%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -82,7 +82,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 45% !important;
+            width: 40% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -96,7 +96,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 45% !important;
+            width: 40% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -105,14 +105,14 @@ st.markdown(f"""
             border-radius: 10px !important;
             background: #f0fff0 !important;
             color: #000 !important;
-            height: 35px !important;
+            height: 30px !important;
             padding: 0 6px !important;
             font-size: 25px !important;
         }}
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 45% !important;
+            width: 40% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
