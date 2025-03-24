@@ -60,7 +60,7 @@ st.markdown(f"""
             width: 80%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 36px;
+            font-size: 37px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
