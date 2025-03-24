@@ -43,14 +43,14 @@ st.markdown(f"""
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
         }}
 
-        /* Form container => wider so that text boxes can be 25% inside */
+        /* Form container => narrower, with left margin so it's "a little away" */
         .form-container {{
             margin-top: 40px;
-            width: 60%; /* You can adjust this to suit your layout */
+            margin-left: 100px; /* Adjust as needed */
+            width: 40%;         /* Adjust as needed */
             background: rgba(255,255,255,0.4);
             padding: 20px;
             border-radius: 10px;
-            margin-left: 50px;
         }}
 
         /* Input label styling */
@@ -64,16 +64,16 @@ st.markdown(f"""
             display: block;
         }}
 
-        /* Text inputs => 25% width, turquoise border */
+        /* Text inputs => smaller, turquoise border, fill 80% of the container */
         div[data-baseweb="input"] {{
-            border: 2px solid #40E0D0; /* Turquoise border */
+            border: 2px solid #40E0D0; /* Turquoise */
             border-radius: 10px;
             background: #f0fff0;
             color: #000;
             height: 35px;
             padding: 0 6px;
             font-size: 20px;
-            width: 25%; /* 1/4 of the container width */
+            width: 80%; /* 80% of .form-container */
             margin-bottom: 10px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }}
