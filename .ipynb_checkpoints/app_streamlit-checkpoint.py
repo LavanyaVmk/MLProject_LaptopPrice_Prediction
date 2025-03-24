@@ -13,6 +13,23 @@ df = pickle.load(open('df.pkl', 'rb'))
 # Must be the first Streamlit command
 st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    /* Hide Streamlit header */
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+    /* Hide Streamlit footer */
+    footer[data-testid="stFooter"] {
+        display: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # Background Image URL
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
@@ -42,7 +59,7 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 80%;
+            width: 45%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
@@ -58,7 +75,7 @@ st.markdown(f"""
         .form-container {{
             margin-top: 20px;
             margin-left: 50px !important;  /* adjust this as needed */
-            width: 70%;
+            width: 35%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -66,7 +83,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 70% !important;
+            width: 35% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -80,7 +97,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 70% !important;
+            width: 35% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -96,7 +113,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 70% !important;
+            width: 35% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -143,7 +160,7 @@ st.markdown(f"""
             text-align: center;
             font-size: 33px;
             font-weight: bold;
-            width: 110%;
+            width: 60%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
