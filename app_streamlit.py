@@ -54,12 +54,12 @@ st.markdown(f"""
 
         /* Form container => center, remove background to avoid white box */
         .form-container {{
-            margin: 0 auto;
             margin-top: 20px;
             width: 70%;
             background: none;
             padding: 0;
             border-radius: 0;
+            margin-left: 5px !important;
         }}
 
         /* SELECTBOX container & actual dropdown */
@@ -139,9 +139,9 @@ st.markdown(f"""
             padding: 20px;
             border-radius: 20px;
             text-align: center;
-            font-size: 36px;
+            font-size: 33px;
             font-weight: bold;
-            width: 90%;
+            width: 110%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
