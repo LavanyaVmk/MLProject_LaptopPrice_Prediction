@@ -74,7 +74,7 @@ st.markdown(f"""
         .form-container {{
             margin-top: 20px;
             margin-left: -2px !important;  /* adjust this as needed */
-            width: 50%;
+            width: 55%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -82,7 +82,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 50% !important;
+            width: 55% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -96,7 +96,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 50% !important;
+            width: 55% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -112,7 +112,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 50% !important;
+            width: 55% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -157,7 +157,7 @@ st.markdown(f"""
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            font-size: 28px;
+            font-size: 27px;
             font-weight: bold;
             width: 100%;
             margin: 20px auto 0 auto;
