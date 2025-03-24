@@ -57,10 +57,10 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 90%;
+            width: 80%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 38px;
+            font-size: 35px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
@@ -130,8 +130,8 @@ st.markdown(f"""
         div[data-testid="stSelectbox"] label,
         div[data-testid="stNumberInput"] label,
         div[data-testid="stSlider"] label {{
-            color: #4169E1 !important;    /* Royal blue */
-            font-weight: bold !important;
+            color: #FF5B00 !important;    /* Royal blue */
+            font-weight: 800 !important;
             font-size: 40px !important;   /* Increase to 40px */
             margin-bottom: 5px !important;
         }}
