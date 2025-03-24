@@ -29,7 +29,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # Background Image URL
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
@@ -53,7 +52,6 @@ st.markdown(f"""
             margin-top: 15px;
             text-align: left;
             margin-bottom: 10px;
-
         }}
 
         /* Title box => anchored left, 80% wide */
@@ -90,8 +88,13 @@ st.markdown(f"""
             border: 2px solid #40E0D0 !important;
             border-radius: 10px !important;
             background: #f0fff0 !important;
-            color: #000 !important;
+            color: #4169E1 !important; /* TEXT INSIDE -> ROYAL BLUE */
             padding: 6px !important;
+            /* Optional blue shadow if you kept it from previous code */
+            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
+        }}
+        div[data-testid="stSelectbox"] > div[role="combobox"]:hover {{
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
         }}
 
         /* NUMBER INPUT container & actual input box */
@@ -104,10 +107,15 @@ st.markdown(f"""
             border: 2px solid #40E0D0 !important;
             border-radius: 10px !important;
             background: #f0fff0 !important;
-            color: #000 !important;
+            color: #4169E1 !important; /* TEXT INSIDE -> ROYAL BLUE */
             height: 30px !important;
             padding: 0 6px !important;
             font-size: 25px !important;
+            /* Optional blue shadow if you kept it from previous code */
+            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
+        }}
+        div[data-testid="stNumberInput"] > div[data-baseweb="input"]:hover {{
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
         }}
 
         /* SLIDER container width => center it */
@@ -115,13 +123,18 @@ st.markdown(f"""
             width: 55% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
+            /* Optional blue shadow if you kept it */
+            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
+        }}
+        div[data-testid="stSlider"]:hover {{
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
         }}
 
         /* LABELS for selectbox, number input, slider, etc. */
         div[data-testid="stSelectbox"] label,
         div[data-testid="stNumberInput"] label,
         div[data-testid="stSlider"] label {{
-            color: #4169E1 !important;
+            color: #39FF14 !important; /* NEON GREEN LABELS */
             font-weight: bold !important;
             font-size: 35px !important;
             margin-bottom: 5px !important;
