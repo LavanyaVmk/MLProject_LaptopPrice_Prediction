@@ -45,7 +45,7 @@ st.markdown(f"""
         /* Remove default Streamlit padding/margins */
         .block-container {{
             padding-left: 8% !important;
-            padding-right: 50% !important;
+            padding-right: 55% !important;
         }}
 
         /* Title container pinned to the very left, no extra top margin */
@@ -59,7 +59,7 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 75%;
+            width: 80%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 38px;
@@ -74,7 +74,7 @@ st.markdown(f"""
         .form-container {{
             margin-top: 20px;
             margin-left: -2px !important;  /* adjust this as needed */
-            width: 40%;
+            width: 45%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -82,7 +82,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 40% !important;
+            width: 45% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -96,7 +96,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 40% !important;
+            width: 45% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -112,7 +112,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 40% !important;
+            width: 45% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -155,7 +155,7 @@ st.markdown(f"""
         .price-box {{
             background-color: #fffd37;
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 10px;
             text-align: center;
             font-size: 30px;
             font-weight: bold;
