@@ -3,10 +3,10 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Install dependencies if not already installed
+# If needed, install dependencies
 os.system("pip install -r requirements.txt")
 
-# Load the trained model and dataset
+# Load your trained model and dataset
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
@@ -25,19 +25,21 @@ st.markdown(f"""
             background-size: 85%;
         }}
 
-        /* Adjust main container to shift content left/right */
+        /* Remove default Streamlit padding/margins */
         .block-container {{
-            padding-left: -5% !important;
-            padding-right: 53% !important;
+            padding-left: 0% !important;
+            padding-right: 0% !important;
+            margin: 0 !important;
         }}
 
-        /* Title container => center on page (no extra top margin) */
+        /* Title container pinned to the very left, no extra top margin */
         .title-container {{
             margin-top: 0px;
-            text-align: center;
+            margin-left: 0px;
+            text-align: left;
         }}
 
-        /* Title box => center itself, 50% screen width */
+        /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
             width: 80%;
@@ -49,17 +51,17 @@ st.markdown(f"""
             border: none;
             border-radius: 0 50px 50px 0;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
-            margin: 0 auto;
+            margin: 0;
         }}
 
-        /* Form container => center, remove background to avoid white box */
+        /* Form container => slight left margin so inputs aren’t flush left */
         .form-container {{
             margin-top: 20px;
+            margin-left: 50px !important;  /* adjust this as needed */
             width: 70%;
             background: none;
             padding: 0;
             border-radius: 0;
-            margin-left: 5px !important;
         }}
 
         /* SELECTBOX container & actual dropdown */
@@ -153,7 +155,7 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# Title
+# Render Title
 st.markdown("""
 <div class="title-container">
     <div class="title-box">
@@ -162,9 +164,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Form container
+# Render Form Container
 st.markdown("<div class='form-container'>", unsafe_allow_html=True)
 
+# Example Input Fields
 company = st.selectbox('Brand', df['Company'].unique())
 laptop_type = st.selectbox('Type', df['TypeName'].unique())
 ram = st.selectbox('Memory (RAM in GB)', [2, 4, 6, 8, 12, 16, 24, 32, 64])
@@ -182,14 +185,18 @@ cpu = st.selectbox('Processor (CPU)', df['Cpu brand'].unique())
 gpu = st.selectbox('Graphics Card (GPU)', df['Gpu brand'].unique())
 os = st.selectbox('Operating System', df['os'].unique())
 
+# Predict Button
 predict_button = st.button('Predict Price')
 
+# On Predict
 if predict_button:
+    # Convert 'Yes'/'No' to 1/0
     touchscreen_val = 1 if touchscreen == 'Yes' else 0
     ips_val = 1 if ips == 'Yes' else 0
     X_res, Y_res = map(int, resolution.split('x'))
     ppi = ((X_res ** 2) + (Y_res ** 2)) ** 0.5 / screen_size
 
+    # Model prediction
     query = np.array([
         company, laptop_type, ram, weight, touchscreen_val, ips_val, ppi,
         cpu, hdd, ssd, gpu, os
