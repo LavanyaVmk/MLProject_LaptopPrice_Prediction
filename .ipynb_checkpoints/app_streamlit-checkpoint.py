@@ -84,17 +84,15 @@ st.markdown(f"""
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
+        /* Neon green border, hover glow */
         div[data-testid="stSelectbox"] > div[role="combobox"] {{
-            border: 2px solid #40E0D0 !important;
+            border: 2px solid #39FF14 !important; /* Neon green border */
             border-radius: 10px !important;
             background: #f0fff0 !important;
-            color: #4169E1 !important; /* TEXT INSIDE -> ROYAL BLUE */
-            padding: 6px !important;
-            /* Optional blue shadow if you kept it from previous code */
-            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
+            /* text inside is unchanged */
         }}
         div[data-testid="stSelectbox"] > div[role="combobox"]:hover {{
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
+            box-shadow: 0 0 10px #39FF14 !important; /* Neon green glow on hover */
         }}
 
         /* NUMBER INPUT container & actual input box */
@@ -104,18 +102,16 @@ st.markdown(f"""
             margin-bottom: 10px !important;
         }}
         div[data-testid="stNumberInput"] > div[data-baseweb="input"] {{
-            border: 2px solid #40E0D0 !important;
+            border: 2px solid #39FF14 !important; /* Neon green border */
             border-radius: 10px !important;
             background: #f0fff0 !important;
-            color: #4169E1 !important; /* TEXT INSIDE -> ROYAL BLUE */
+            /* text inside is unchanged */
             height: 30px !important;
             padding: 0 6px !important;
             font-size: 25px !important;
-            /* Optional blue shadow if you kept it from previous code */
-            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
         }}
         div[data-testid="stNumberInput"] > div[data-baseweb="input"]:hover {{
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
+            box-shadow: 0 0 10px #39FF14 !important; /* Neon green glow on hover */
         }}
 
         /* SLIDER container width => center it */
@@ -123,20 +119,20 @@ st.markdown(f"""
             width: 55% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
-            /* Optional blue shadow if you kept it */
-            box-shadow: 0 0 6px rgba(0, 0, 255, 0.3) !important;
+            border: 2px solid #39FF14 !important; /* Neon green border */
+            border-radius: 10px !important;
         }}
         div[data-testid="stSlider"]:hover {{
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.6) !important;
+            box-shadow: 0 0 10px #39FF14 !important; /* Neon green glow on hover */
         }}
 
         /* LABELS for selectbox, number input, slider, etc. */
         div[data-testid="stSelectbox"] label,
         div[data-testid="stNumberInput"] label,
         div[data-testid="stSlider"] label {{
-            color: #39FF14 !important; /* NEON GREEN LABELS */
+            color: #4169E1 !important;    /* Royal blue */
             font-weight: bold !important;
-            font-size: 35px !important;
+            font-size: 40px !important;   /* Increase to 40px */
             margin-bottom: 5px !important;
         }}
 
