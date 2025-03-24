@@ -51,7 +51,7 @@ st.markdown(f"""
         /* Title container pinned to the very left, no extra top margin */
         .title-container {{
             margin-top: 0px;
-            margin-left: 10px;
+            margin-left: 20px;
             text-align: left;
         }}
 
@@ -72,7 +72,7 @@ st.markdown(f"""
         /* Form container => slight left margin so inputs aren’t flush left */
         .form-container {{
             margin-top: 20px;
-            margin-left: 50px !important;  /* adjust this as needed */
+            margin-left: 30px !important;  /* adjust this as needed */
             width: 35%;
             background: none;
             padding: 0;
