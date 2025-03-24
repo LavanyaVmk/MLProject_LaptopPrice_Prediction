@@ -24,16 +24,24 @@ st.markdown(f"""
             background: url("{background_image_url}") no-repeat center center fixed;
             background-size: 80%;
         }}
-        
-        /* Title container pinned to the left, no extra margin on top */
-        .title-container {{
-            margin-left: 20px;
-            margin-top: 0px;  /* remove extra space above title */
+
+        /* Adjust main container to shift content left/right */
+        .block-container {{
+            padding-left: 15% !important;
+            padding-right: 15% !important;
         }}
 
-        /* Title box => 40% of the screen width */
+        /* Title container => center on page (no extra top margin) */
+        .title-container {{
+            margin: 0 auto;
+            margin-top: 0px;
+            text-align: center;
+        }}
+
+        /* Title box => center itself, 50% screen width */
         .title-box {{
-            width: 40%;
+            display: inline-block;
+            width: 50%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
@@ -42,32 +50,27 @@ st.markdown(f"""
             border: none;
             border-radius: 0 50px 50px 0;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
+            margin: 0 auto;
         }}
 
-        /* Form container => narrower, some left margin, no top margin */
+        /* Form container => center, remove background to avoid white box */
         .form-container {{
-            margin-top: 0px;       /* remove extra space below title */
-            margin-left: 60px;     /* tweak to move form inside the image area */
-            width: 30%;            /* form container width */
-            background: rgba(255,255,255,0.4);
-            padding: 20px;
-            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 40%;
+            background: none;
+            padding: 0;
+            border-radius: 0;
         }}
-
-        /*
-         * STREAMLIT COMPONENTS
-         * Each has a data-testid attribute:
-         *   stSelectbox, stNumberInput, stSlider
-         */
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 30% !important;       /* half of previous 80% */
-            margin-left: 0px !important;
+            width: 40% !important;
+            margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
         div[data-testid="stSelectbox"] > div[role="combobox"] {{
-            border: 2px solid #40E0D0 !important;  /* turquoise border */
+            border: 2px solid #40E0D0 !important;
             border-radius: 10px !important;
             background: #f0fff0 !important;
             color: #000 !important;
@@ -76,8 +79,8 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 30% !important;
-            margin-left: 0px !important;
+            width: 40% !important;
+            margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
         div[data-testid="stNumberInput"] > div[data-baseweb="input"] {{
@@ -90,10 +93,10 @@ st.markdown(f"""
             font-size: 20px !important;
         }}
 
-        /* SLIDER container width */
+        /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 30% !important;
-            margin-left: 0px !important;
+            width: 40% !important;
+            margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
 
@@ -107,8 +110,12 @@ st.markdown(f"""
             margin-bottom: 5px !important;
         }}
 
-        /* PREDICT BUTTON */
+        /* Center the Predict Button */
+        .stButton {{
+            text-align: center;
+        }}
         .stButton > button {{
+            display: inline-block;
             background-color: #4169E1;
             color: #fffd37;
             border-radius: 8px;
@@ -127,7 +134,7 @@ st.markdown(f"""
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }}
 
-        /* PRICE DISPLAY BOX */
+        /* Price Display Box => center, if used */
         .price-box {{
             background-color: #fffd37;
             padding: 20px;
@@ -136,9 +143,8 @@ st.markdown(f"""
             font-size: 36px;
             font-weight: bold;
             width: 70%;
-            margin: auto;
+            margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
-            margin-top: 20px;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }}
         .price-box:hover {{
@@ -148,7 +154,7 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# LEFT-PINNED TITLE
+# Title
 st.markdown("""
 <div class="title-container">
     <div class="title-box">
@@ -157,10 +163,9 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# MAIN FORM CONTAINER
+# Form container
 st.markdown("<div class='form-container'>", unsafe_allow_html=True)
 
-# Input Fields
 company = st.selectbox('Brand', df['Company'].unique())
 laptop_type = st.selectbox('Type', df['TypeName'].unique())
 ram = st.selectbox('Memory (RAM in GB)', [2, 4, 6, 8, 12, 16, 24, 32, 64])
@@ -178,11 +183,9 @@ cpu = st.selectbox('Processor (CPU)', df['Cpu brand'].unique())
 gpu = st.selectbox('Graphics Card (GPU)', df['Gpu brand'].unique())
 os = st.selectbox('Operating System', df['os'].unique())
 
-# Predict Button
 predict_button = st.button('Predict Price')
 
 if predict_button:
-    # Convert Yes/No to 1/0
     touchscreen_val = 1 if touchscreen == 'Yes' else 0
     ips_val = 1 if ips == 'Yes' else 0
     X_res, Y_res = map(int, resolution.split('x'))
