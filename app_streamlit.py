@@ -52,7 +52,7 @@ st.markdown(f"""
         .title-container {{
             margin-top: 15px;
             margin-left: 0px;
-            text-align: center;
+            text-align: left;
             margin-bottom: 20px;
 
         }}
@@ -60,10 +60,10 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 70%;
+            width: 60%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 36px;
+            font-size: 35px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
@@ -74,7 +74,7 @@ st.markdown(f"""
         /* Form container => slight left margin so inputs aren’t flush left */
         .form-container {{
             margin-top: 20px;
-            margin-left: 20px !important;  /* adjust this as needed */
+            margin-left: 10px !important;  /* adjust this as needed */
             width: 45%;
             background: none;
             padding: 0;
