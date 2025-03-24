@@ -27,7 +27,7 @@ st.markdown(f"""
 
         /* Adjust main container to shift content left/right */
         .block-container {{
-            padding-left: 10% !important;
+            padding-left: 20% !important;
             padding-right: 15% !important;
         }}
 
@@ -41,7 +41,7 @@ st.markdown(f"""
         /* Title box => center itself, 50% screen width */
         .title-box {{
             display: inline-block;
-            width: 50%;
+            width: 40%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
@@ -57,7 +57,7 @@ st.markdown(f"""
         .form-container {{
             margin: 0 auto;
             margin-top: 20px;
-            width: 40%;
+            width: 30%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -65,7 +65,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 40% !important;
+            width: 30% !important;
             margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
@@ -79,7 +79,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 40% !important;
+            width: 30% !important;
             margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
@@ -95,7 +95,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 40% !important;
+            width: 30% !important;
             margin: 0 auto !important;
             margin-bottom: 15px !important;
         }}
@@ -106,7 +106,7 @@ st.markdown(f"""
         div[data-testid="stSlider"] label {{
             color: #4169E1 !important;
             font-weight: bold !important;
-            font-size: 22px !important;
+            font-size: 25px !important;
             margin-bottom: 5px !important;
         }}
 
