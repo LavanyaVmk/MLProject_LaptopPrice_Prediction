@@ -27,7 +27,7 @@ st.markdown(f"""
 
         /* Adjust main container to shift content left/right */
         .block-container {{
-            padding-left: 2% !important;
+            padding-left: -5% !important;
             padding-right: 25% !important;
         }}
 
