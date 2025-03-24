@@ -31,9 +31,9 @@ st.markdown(f"""
             margin-top: 0px;  /* remove extra space above title */
         }}
 
-        /* Title box => 50% of the screen width */
+        /* Title box => 40% of the screen width */
         .title-box {{
-            width: 50%;
+            width: 40%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
@@ -47,8 +47,8 @@ st.markdown(f"""
         /* Form container => narrower, some left margin, no top margin */
         .form-container {{
             margin-top: 0px;       /* remove extra space below title */
-            margin-left: 20px;     /* tweak to move form inside the image area */
-            width: 40%;            /* form container width */
+            margin-left: 60px;     /* tweak to move form inside the image area */
+            width: 30%;            /* form container width */
             background: rgba(255,255,255,0.4);
             padding: 20px;
             border-radius: 10px;
@@ -62,7 +62,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 40% !important;       /* half of previous 80% */
+            width: 30% !important;       /* half of previous 80% */
             margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
@@ -76,7 +76,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 40% !important;
+            width: 30% !important;
             margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
@@ -92,7 +92,7 @@ st.markdown(f"""
 
         /* SLIDER container width */
         div[data-testid="stSlider"] {{
-            width: 40% !important;
+            width: 30% !important;
             margin-left: 0px !important;
             margin-bottom: 15px !important;
         }}
