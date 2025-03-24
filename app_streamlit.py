@@ -14,32 +14,18 @@ st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
-# Global CSS
-st.markdown(f"""
-<style>
-/* Remove all default margins/padding from html, body, and .stApp */
-html, body, .stApp {{
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100%;
-    width: 100%;
-}}
 
-/* Force the block-container to have no top margin/padding */
-.block-container {{
-    margin-top: 15px !important;
-}}
 
-/* Background image pinned, no top margin */
+
 .stApp {{
     background: url("{background_image_url}") no-repeat center center fixed;
-    background-size: 85%;
+    background-size: 70%;
 }}
 
 /* Title container pinned to the left, no top margin */
 .title-container {{
-    margin-top: 15px !important;
-    left: 1px;
+    margin-top: 20px !important;
+    left: 15px;
     z-index: 9999;
 }}
 
@@ -47,23 +33,24 @@ html, body, .stApp {{
 .title-box {{
     background-color: #fffd37;
     color: #1900ff;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 0 50px 50px 0; /* left flat, right curved */
     box-shadow: 0 0 0 4px rgba(65,105,225,0.5); /* royal blue shadow, transparent style */
-    display: inline-block;
 }}
 
 /* Form container => narrower, centered horizontally, margin-top for spacing from top */
 .form-container {{
-    margin: 0 auto;
-    margin-top: 80px; /* so it’s below the pinned title */
+    margin-top: 40px; /* so it’s below the pinned title */
     max-width: 120px; /* narrower container */
     background: rgba(255,255,255,0.4); /* optional translucent background */
     padding: 20px;
     border-radius: 10px;
+    margin-left: 50px;
+
+        
 }}
 
 /* Input label styling => bigger font, centered text */
@@ -73,13 +60,14 @@ div[data-testid="stSlider"] label {{
     color: #4169E1 !important;
     font-weight: bold;
     font-size: 22px !important;
-    text-align: center;
+    text-align: left;
     margin: 0 auto 5px auto;
 }}
+    
 div[data-testid="stSelectbox"],
 div[data-testid="stNumberInput"],
 div[data-testid="stSlider"] {{
-    width: 40% !important;
+    width: 100% !important;
     color: black !important;
     font-weight: bold !important;
     margin-bottom: 15px !important;
@@ -92,12 +80,12 @@ div[data-baseweb="input"] {{
     border-radius: 10px !important;
     background: #f0fff0 !important;
     color: #000 !important;
-    height: 36px !important;
+    height: 35px !important;
     line-height: 26px !important;
     padding: 0 6px !important;
     font-size: 20px !important;
     margin: 3px auto !important;
-    width: 120px !important; 
+    width: 80px !important; 
     display: block !important; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; 
 }}
