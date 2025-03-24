@@ -60,10 +60,10 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 60%;
+            width: 70%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 35px;
+            font-size: 38px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
