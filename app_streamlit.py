@@ -44,7 +44,7 @@ st.markdown(f"""
         /* Remove default Streamlit padding/margins */
         .block-container {{
             padding-left: 8% !important;
-            padding-right: 55% !important;
+            padding-right: 50% !important;
         }}
 
         /* Title container pinned to the very left, no extra top margin */
@@ -60,7 +60,7 @@ st.markdown(f"""
             width: 80%;
             background-color: #fffd37;
             color: #1900ff;
-            font-size: 35px;
+            font-size: 34px;
             font-weight: bold;
             padding: 10px 20px;
             border: none;
@@ -72,7 +72,7 @@ st.markdown(f"""
         .form-container {{
             margin-top: 20px;
             margin-left: -2px !important;  /* adjust this as needed */
-            width: 55%;
+            width: 50%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -80,7 +80,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 55% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -97,7 +97,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 55% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -116,7 +116,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 55% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
             border: 2px solid #39FF14 !important; /* Neon green border */
@@ -131,7 +131,7 @@ st.markdown(f"""
         div[data-testid="stNumberInput"] label,
         div[data-testid="stSlider"] label {{
             color: #FF5B00 !important;    /* Royal blue */
-            font-weight: 800 !important;
+            font-weight: bold !important;
             font-size: 40px !important;   /* Increase to 40px */
             margin-bottom: 5px !important;
         }}
