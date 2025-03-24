@@ -38,7 +38,7 @@ st.markdown(f"""
         /* Main app background */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 85%;
+            background-size: 100%;
         }}
 
         /* Remove default Streamlit padding/margins */
