@@ -31,7 +31,7 @@ st.markdown(
         /* Heading with shimmer effect */
         h1 {{
             text-align: left;
-            font-size: 40px !important;
+            font-size: 30px !important;
             font-weight: bold;
             background-color: #fffd37 !important; /* Sunshine Yellow */
             width: 42% !important;
@@ -40,7 +40,10 @@ st.markdown(
             border-radius: 5px;
             margin-left: 5%;
             margin-bottom: 30px;
-            border: 3px solid #4169E1 !important; /* Royal Blue border */
+            height: 100px
+            /* Shaded border effect using box-shadow */
+            box-shadow: 0 0 0 3px #4169E1; /* Royal Blue shadow border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
             animation: popIn 0.8s ease forwards;
@@ -76,7 +79,7 @@ st.markdown(
         div[data-testid="stSlider"] label {{
             color: #4169E1 !important;  
             font-weight: bold;
-            font-size: 20px;
+            font-size: 30px;
         }}
         div[data-testid="stSelectbox"],
         div[data-testid="stNumberInput"],
