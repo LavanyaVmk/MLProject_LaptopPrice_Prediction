@@ -157,9 +157,9 @@ st.markdown(f"""
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: bold;
-            width: 90%;
+            width: 100%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
