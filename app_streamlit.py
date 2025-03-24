@@ -59,7 +59,7 @@ st.markdown(f"""
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 80%;
+            width: 90%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 38px;
@@ -74,7 +74,7 @@ st.markdown(f"""
         .form-container {{
             margin-top: 20px;
             margin-left: -2px !important;  /* adjust this as needed */
-            width: 45%;
+            width: 50%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -82,7 +82,7 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 45% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -96,7 +96,7 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 45% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -112,7 +112,7 @@ st.markdown(f"""
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 45% !important;
+            width: 50% !important;
             margin: 0 auto !important;
             margin-bottom: 10px !important;
         }}
@@ -159,7 +159,7 @@ st.markdown(f"""
             text-align: center;
             font-size: 30px;
             font-weight: bold;
-            width: 80%;
+            width: 90%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
