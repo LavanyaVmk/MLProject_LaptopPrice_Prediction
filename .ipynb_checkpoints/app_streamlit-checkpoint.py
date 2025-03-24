@@ -27,7 +27,7 @@ st.markdown(f"""
 
         /* Adjust main container to shift content left/right */
         .block-container {{
-            padding-left: 0% !important;
+            padding-left: -5% !important;
             padding-right: 45% !important;
         }}
 
@@ -41,7 +41,7 @@ st.markdown(f"""
         /* Title box => center itself, 50% screen width */
         .title-box {{
             display: inline-block;
-            width: 45%;
+            width: 55%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
