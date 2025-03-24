@@ -73,8 +73,8 @@ st.markdown(f"""
             height: 35px;
             padding: 0 6px;
             font-size: 20px;
-            width: 80%; /* 80% of .form-container */
-            margin-bottom: 10px;
+            width: 40%; /* 40% of .form-container */
+            margin-bottom: 6px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }}
         div[data-baseweb="input"]:hover {{
