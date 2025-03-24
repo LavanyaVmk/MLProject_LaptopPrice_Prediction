@@ -73,7 +73,7 @@ st.markdown(f"""
         /* Form container => slight left margin so inputs aren’t flush left */
         .form-container {{
             margin-top: 20px;
-            margin-left: 2px !important;  /* adjust this as needed */
+            margin-left: -2px !important;  /* adjust this as needed */
             width: 40%;
             background: none;
             padding: 0;
