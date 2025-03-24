@@ -9,65 +9,68 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
-# MUST be the first Streamlit command
+# Must be the first Streamlit command
 st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 
-# Use your GitHub-hosted background image
 background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML/blob/main/img1.jpeg?raw=true"
 
-# Apply custom CSS
+# Global CSS
 st.markdown(f"""
 <style>
-/* Remove all default margins/padding from HTML, body, and .stApp */
+/* Remove all default margins/padding from html, body, and .stApp */
 html, body, .stApp {{
     margin: 0 !important;
     padding: 0 !important;
+    height: 100%;
+    width: 100%;
 }}
 
-/* Background image => pinned, no top margin */
+/* Force the block-container to have no top margin/padding */
+.block-container {{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}}
+
+/* Background image pinned, no top margin */
 .stApp {{
     background: url("{background_image_url}") no-repeat center center fixed;
     background-size: 80%;
 }}
 
-/* Title container => pinned to left, near top */
+/* Title container pinned to the left, no top margin */
 .title-container {{
     position: absolute;
     left: 0;
-    top: 10px;  /* Adjust as needed */
-    padding: 0 0 0 0;
+    top: 0; /* pinned at very top */
+    z-index: 9999;
     margin: 0;
-    z-index: 9999; /* ensure on top */
+    padding: 0;
 }}
 
-/* Title box => no solid border, left side flat, right side curved, royal blue shadow */
+/* Title box => left side flat, right side curved, no solid border => royal blue shadow */
 .title-box {{
-    background-color: #fffd37; /* Sunshine Yellow */
-    color: #1900ff; /* Royal Blue text */
+    background-color: #fffd37;
+    color: #1900ff;
     font-size: 32px;
     font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 0 50px 50px 0; /* left flat, right curved */
-    box-shadow: 0 0 0 4px rgba(65,105,225,0.5); /* Royal Blue shadow, transparent style */
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 0 4px rgba(65,105,225,0.5); /* royal blue shadow, transparent style */
     display: inline-block;
 }}
 
-/* Form container => margin-left to avoid overlap with title */
+/* Form container => narrower, centered horizontally, margin-top for spacing from top */
 .form-container {{
-    margin-left: 260px; /* Enough to clear the title container on the left */
-    margin-top: 40px;   /* Some gap from the top */
-    padding: 0 15% !important; /* to center horizontally if needed */
+    margin: 0 auto;
+    margin-top: 80px; /* so it’s below the pinned title */
+    max-width: 600px; /* narrower container */
+    background: rgba(255,255,255,0.4); /* optional translucent background */
+    padding: 20px;
+    border-radius: 10px;
 }}
 
-/* Gap below the Predict button => 30px for spacing before price box */
-.predict-button-gap {{
-    margin-bottom: 30px !important;
-}}
-
-/* Input label styling => bigger font, centered */
+/* Input label styling => bigger font, centered text */
 div[data-testid="stSelectbox"] label, 
 div[data-testid="stNumberInput"] label, 
 div[data-testid="stSlider"] label {{
@@ -75,19 +78,18 @@ div[data-testid="stSlider"] label {{
     font-weight: bold;
     font-size: 22px !important;
     text-align: center;
-    display: block;
     margin: 0 auto 5px auto;
 }}
 div[data-testid="stSelectbox"],
 div[data-testid="stNumberInput"],
 div[data-testid="stSlider"] {{
-    width: 100% !important; /* let them fill container width, see container margin for overall alignment */
+    width: 100% !important;
     color: black !important;
     font-weight: bold !important;
     margin-bottom: 15px !important;
 }}
 
-/* Smaller text inputs => ~120px wide, with yellowish border + glow on hover */
+/* Smaller text inputs => ~120px wide, with a yellowish transparent border + glow on hover */
 div[data-baseweb="input"] {{
     box-sizing: border-box;
     border: 2px solid rgba(255, 255, 0, 0.4) !important; /* yellowish transparent border */
@@ -99,19 +101,18 @@ div[data-baseweb="input"] {{
     padding: 0 6px !important;
     font-size: 20px !important;
     margin: 3px auto !important;
-    width: 120px !important; /* half original ~ 120px */
+    width: 120px !important; 
     display: block !important; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important; 
 }}
 div[data-baseweb="input"]:hover {{
-    box-shadow: 0 0 5px rgba(255, 255, 0, 0.6) !important; /* subtle glow */
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.6) !important; 
 }}
 
 /* Predict Button => pop-over effect on hover */
 .stButton {{
     display: flex;
     justify-content: center;
-    margin-bottom: 0 !important;
 }}
 .stButton > button {{
     background-color: #4169E1 !important;
@@ -133,40 +134,45 @@ div[data-baseweb="input"]:hover {{
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }}
 
-/* Price Display Box => no solid border, only a subtle royal blue shadow, more curved corners */
+/* Gap below the Predict button => spacing before price box */
+.predict-button-gap {{
+    margin-bottom: 30px !important;
+}}
+
+/* Price Display Box => no solid border, only a subtle royal blue shadow, curved corners */
 .price-box {{
     background-color: #fffd37;
     padding: 20px;
-    border-radius: 20px; /* Larger curve */
+    border-radius: 20px; 
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    width: 60%;
+    width: 70%;
     margin: auto;
     box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
-    margin-bottom: 30px !important; /* some space at bottom */
+    margin-bottom: 30px !important;
 }}
 .price-box:hover {{
     transform: scale(1.05);
     box-shadow: 0 0 0 6px rgba(65,105,225,0.5);
 }}
 </style>
-""",
-unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# Title container => pinned on the left
+
+# LEFT-PINNED TITLE
 st.markdown("""
 <div class="title-container">
     <div class="title-box">
-        <span style="margin-right:8px;">&#128187;</span> Laptop Price Predictor
+        <span style="margin-right:8px;">&#128187;</span>
+        Laptop Price Predictor
     </div>
 </div>
 """, unsafe_allow_html=True)
 
-# Main form container
-st.markdown("""<div class="form-container">""", unsafe_allow_html=True)
+# MAIN FORM CONTAINER
+st.markdown("<div class='form-container'>", unsafe_allow_html=True)
 
 # Input Fields
 company = st.selectbox('**Brand**', df['Company'].unique())
@@ -186,12 +192,13 @@ cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Predict Button with a gap afterwards
+# Predict Button
 predict_button = st.button('Predict Price', key='predict_button')
+# Gap below button
 st.markdown("<div class='predict-button-gap'></div>", unsafe_allow_html=True)
 
-# Price Display (shown only if user clicked predict)
 if predict_button:
+    # Convert 'Yes'/'No' to 1/0
     touchscreen_val = 1 if touchscreen == 'Yes' else 0
     ips_val = 1 if ips == 'Yes' else 0
     X_res, Y_res = map(int, resolution.split('x'))
@@ -203,8 +210,8 @@ if predict_button:
 
     st.markdown(f"""
     <div class='price-box'>
-        🏷️ Estimated Laptop Price:
-        <span style="color: #d80000;">{price_inr}</span>
+      🏷️ Estimated Laptop Price:
+      <span style="color: #d80000;">{price_inr}</span>
     </div>
     """, unsafe_allow_html=True)
 
