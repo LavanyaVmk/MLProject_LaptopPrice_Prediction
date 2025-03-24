@@ -32,7 +32,7 @@ st.markdown(
         /* Heading with shimmer effect and royal blue shadow border */
         h1 {{
             text-align: left;
-            font-size: 40px !important;
+            font-size: 32px !important;
             font-weight: bold;
             background-color: #fffd37 !important; /* Sunshine Yellow */
             width: 42% !important;
@@ -105,7 +105,7 @@ st.markdown(
             font-size: 22px !important;
             margin: 3px 0 !important;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-            width: 295px !important;
+            width: 195px !important;
         }}
         div[data-baseweb="input"]:hover {{
             box-shadow: 0 0 6px #00CED1 !important;
@@ -132,7 +132,8 @@ st.markdown(
             margin-top: 40px !important;
             border: none;
             width: 220px;
-            height: 60px !important;
+            margin-bottom: 10px !important;
+            height: 50px !important;
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }}
         .stButton > button:hover {{
