@@ -44,14 +44,14 @@ st.markdown(f"""
 
         /* Remove default Streamlit padding/margins */
         .block-container {{
-            padding-left: 8% !important;
+            padding-left: 7% !important;
             padding-right: 45% !important;
         }}
 
         /* Title container pinned to the very left, no extra top margin */
         .title-container {{
             margin-top: 15px;
-            margin-left: 10px;
+            margin-left: 0px;
             text-align: center;
             margin-bottom: 20px;
 
