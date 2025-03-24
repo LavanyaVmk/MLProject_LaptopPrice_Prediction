@@ -9,7 +9,7 @@ import numpy as np
 pipe = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
-# Set page config (must be the first Streamlit command)
+# Set page config (must be the very first Streamlit command)
 st.set_page_config(page_title="Laptop Price Predictor", layout="wide")
 
 # Use your GitHub-hosted background image
@@ -19,30 +19,30 @@ background_image_url = "https://github.com/LavanyaVmk/Laptop-Price-Prediction-ML
 st.markdown(
     f"""
     <style>
+        /* Background & container settings */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
             background-size: 80%;
         }}
-        /* Center main container */
         .block-container {{
             padding-left: 15% !important;
             padding-right: 15% !important;
         }}
-        /* Heading with shimmer effect */
+        
+        /* Heading with shimmer effect and royal blue shadow border */
         h1 {{
             text-align: left;
-            font-size: 30px !important;
+            font-size: 40px !important;
             font-weight: bold;
             background-color: #fffd37 !important; /* Sunshine Yellow */
             width: 42% !important;
-            color: #1900ff !important; /* Royal Blue */
+            color: #1900ff !important; /* Royal Blue text */
             padding: 8px;
             border-radius: 5px;
             margin-left: 5%;
             margin-bottom: 30px;
-            height: 100px
-            /* Shaded border effect using box-shadow */
-            box-shadow: 0 0 0 3px #4169E1; /* Royal Blue shadow border */
+            border: none;
+            box-shadow: 0 0 0 3px #4169E1;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -73,13 +73,16 @@ st.markdown(
             }}
         }}
 
-        /* Increase label font-size and reduce input field widths */
+        /* Increase font size for text labels and center them a bit */
         div[data-testid="stSelectbox"] label, 
         div[data-testid="stNumberInput"] label, 
         div[data-testid="stSlider"] label {{
-            color: #4169E1 !important;  
+            color: #4169E1 !important;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 22px !important;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
         }}
         div[data-testid="stSelectbox"],
         div[data-testid="stNumberInput"],
@@ -88,7 +91,32 @@ st.markdown(
             color: black !important;
             font-weight: bold !important;
         }}
-        
+
+        /* Adjust text input styling: reduced width */
+        div[data-baseweb="input"] {{
+            box-sizing: border-box;
+            border: 2px solid #00CED1 !important;
+            border-radius: 10px !important;
+            background: #f0fff0 !important;
+            color: #000 !important;
+            height: 40px !important;
+            line-height: 30px !important;
+            padding: 0 8px !important;
+            font-size: 22px !important;
+            margin: 3px 0 !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+            width: 295px !important;
+        }}
+        div[data-baseweb="input"]:hover {{
+            box-shadow: 0 0 6px #00CED1 !important;
+        }}
+        .stTextInput label {{
+            color: #4169E1 !important;
+            font-weight: bold !important;
+            font-size: 25px !important;
+            margin-bottom: 5px !important;
+        }}
+
         /* Predict Button styling with pop-over effect */
         .stButton {{
             display: flex;
@@ -99,11 +127,12 @@ st.markdown(
             color: #fffd37 !important;
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 22px !important;
             font-weight: bold;
             margin-top: 40px !important;
             border: none;
             width: 220px;
+            height: 60px !important;
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }}
         .stButton > button:hover {{
@@ -113,19 +142,30 @@ st.markdown(
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }}
 
-        /* Price Display Box */
+        /* Price Display Box with bounce and hover effects */
         .price-box {{
             background-color: #fffd37;
             padding: 20px;
-            border-radius: 8px; 
-            text-align: center; 
-            font-size: 22px; 
+            border-radius: 20px; /* Increased for more curve */
+            text-align: center;
+            font-size: 22px;
             font-weight: bold;
             width: 50%;
             margin: auto;
+            box-shadow: 0 0 0 3px #4169E1; /* Royal blue shadow border */
+            transition: box-shadow 0.3s ease;
+        }}
+        .price-box:hover {{
+            animation: bounceEffect 0.5s forwards;
+            box-shadow: 0 0 0 5px #4169E1;
+        }}
+        @keyframes bounceEffect {{
+            0% {{ transform: scale(1); }}
+            50% {{ transform: scale(1.15); }}
+            100% {{ transform: scale(1.1); }}
         }}
 
-        /* Success Title Boxes (for final_success_screen) */
+        /* Success Title Boxes with asymmetric border and royal blue shadow border */
         @keyframes slideInRight {{
           0% {{
             transform: translateX(100%);
@@ -137,23 +177,24 @@ st.markdown(
           }}
         }}
         .title-box {{
-            width: 450px; /* Reduced width */
+            width: 450px;
             padding: 14px;
-            border-radius: 10px;
+            /* Asymmetric border-radius: square on left, curved on right */
+            border-radius: 0 20px 20px 0;
             color: #ffffff;
             font-size: 32px;
             font-weight: 700;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 170, 255, 0.6);
-            border: 3px solid #4169E1; /* Royal Blue border */
             animation: slideInRight 0.8s ease forwards;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            /* Royal blue shadow border effect */
+            box-shadow: 0 0 0 3px #4169E1;
         }}
         .title-box:hover {{
             transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 0 5px #4169E1;
         }}
-
         /* Fixed container for success page titles */
         .title-wrapper {{
             position: fixed;
@@ -183,14 +224,14 @@ ips = st.selectbox('**IPS Display**', ['No', 'Yes'])
 ssd = st.selectbox('**Solid State Drive (SSD in GB)**', [0, 8, 128, 256, 512, 1024])
 screen_size = st.slider('**Screen Size (in inches)**', 10.0, 18.0, 13.0, key='slider_screen_size')
 resolution = st.selectbox('**Screen Resolution**', [
-    '1920x1080', '1366x768', '1600x900', '3840x2160', 
+    '1920x1080', '1366x768', '1600x900', '3840x2160',
     '3200x1800', '2880x1800', '2560x1600', '2560x1440', '2304x1440'
 ])
 cpu = st.selectbox('**Processor (CPU)**', df['Cpu brand'].unique())
 gpu = st.selectbox('**Graphics Card (GPU)**', df['Gpu brand'].unique())
 os = st.selectbox('**Operating System**', df['os'].unique())
 
-# Centered Predict Button
+# Centered Predict Button and Price Display
 if st.button('Predict Price', key='predict_button'):
     touchscreen = 1 if touchscreen == 'Yes' else 0
     ips = 1 if ips == 'Yes' else 0
