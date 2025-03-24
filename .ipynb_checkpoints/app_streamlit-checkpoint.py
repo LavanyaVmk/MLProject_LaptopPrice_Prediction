@@ -40,7 +40,7 @@ st.markdown(f"""
         /* Title box => center itself, 50% screen width */
         .title-box {{
             display: inline-block;
-            width: 70%;
+            width: 80%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
@@ -56,7 +56,7 @@ st.markdown(f"""
         .form-container {{
             margin: 0 auto;
             margin-top: 20px;
-            width: 50%;
+            width: 70%;
             background: none;
             padding: 0;
             border-radius: 0;
@@ -64,9 +64,9 @@ st.markdown(f"""
 
         /* SELECTBOX container & actual dropdown */
         div[data-testid="stSelectbox"] {{
-            width: 50% !important;
+            width: 70% !important;
             margin: 0 auto !important;
-            margin-bottom: 15px !important;
+            margin-bottom: 10px !important;
         }}
         div[data-testid="stSelectbox"] > div[role="combobox"] {{
             border: 2px solid #40E0D0 !important;
@@ -78,9 +78,9 @@ st.markdown(f"""
 
         /* NUMBER INPUT container & actual input box */
         div[data-testid="stNumberInput"] {{
-            width: 50% !important;
+            width: 70% !important;
             margin: 0 auto !important;
-            margin-bottom: 15px !important;
+            margin-bottom: 10px !important;
         }}
         div[data-testid="stNumberInput"] > div[data-baseweb="input"] {{
             border: 2px solid #40E0D0 !important;
@@ -89,14 +89,14 @@ st.markdown(f"""
             color: #000 !important;
             height: 35px !important;
             padding: 0 6px !important;
-            font-size: 20px !important;
+            font-size: 25px !important;
         }}
 
         /* SLIDER container width => center it */
         div[data-testid="stSlider"] {{
-            width: 50% !important;
+            width: 70% !important;
             margin: 0 auto !important;
-            margin-bottom: 15px !important;
+            margin-bottom: 10px !important;
         }}
 
         /* LABELS for selectbox, number input, slider, etc. */
@@ -141,7 +141,7 @@ st.markdown(f"""
             text-align: center;
             font-size: 36px;
             font-weight: bold;
-            width: 70%;
+            width: 90%;
             margin: 20px auto 0 auto;
             box-shadow: 0 0 0 4px rgba(65,105,225,0.5);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
