@@ -44,23 +44,23 @@ st.markdown(f"""
 
         /* Remove default Streamlit padding/margins */
         .block-container {{
-            padding-left: 6% !important;
+            padding-left: 8% !important;
             padding-right: 45% !important;
         }}
 
         /* Title container pinned to the very left, no extra top margin */
         .title-container {{
-            margin-top: 20px;
+            margin-top: 15px;
             margin-left: 20px;
-            text-align: left;
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 20px;
 
         }}
 
         /* Title box => anchored left, 80% wide */
         .title-box {{
             display: inline-block;
-            width: 75%;
+            width: 70%;
             background-color: #fffd37;
             color: #1900ff;
             font-size: 36px;
