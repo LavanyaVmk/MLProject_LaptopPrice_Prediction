@@ -22,18 +22,17 @@ st.markdown(f"""
         /* Main app background */
         .stApp {{
             background: url("{background_image_url}") no-repeat center center fixed;
-            background-size: 80%;
+            background-size: 85%;
         }}
 
         /* Adjust main container to shift content left/right */
         .block-container {{
             padding-left: -5% !important;
-            padding-right: 50% !important;
+            padding-right: 53% !important;
         }}
 
         /* Title container => center on page (no extra top margin) */
         .title-container {{
-            margin: 0 auto;
             margin-top: 0px;
             text-align: center;
         }}
