@@ -28,7 +28,6 @@ st.markdown(f"""
         /* Adjust main container to shift content left/right */
         .block-container {{
             padding-left: -15% !important;
-            padding-right: 25% !important;
         }}
 
         /* Title container => center on page (no extra top margin) */
